@@ -1,6 +1,9 @@
 
 #  Advanced Lane Finding Project
 
+### Project Description
+
+This project builds an advanced lane finding program using distortion correction, image rectification, color transforms, and gradient thresholding to create a lane area map. Additionally, the project outputs the lane curvature and vehicle center deflection from lane center.
 
 [//]: # (Image References)
 
