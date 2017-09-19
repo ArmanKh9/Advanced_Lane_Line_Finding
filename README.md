@@ -1,21 +1,6 @@
-## Writeup Template
 
-### You can use this file as a template for your writeup if you want to submit it as a markdown file, but feel free to use some other method and submit a pdf if you prefer.
+#  Advanced Lane Finding Project
 
----
-
-**Advanced Lane Finding Project**
-
-The goals / steps of this project are the following:
-
-* Compute the camera calibration matrix and distortion coefficients given a set of chessboard images.
-* Apply a distortion correction to raw images.
-* Use color transforms, gradients, etc., to create a thresholded binary image.
-* Apply a perspective transform to rectify binary image ("birds-eye view").
-* Detect lane pixels and fit to find the lane boundary.
-* Determine the curvature of the lane and vehicle position with respect to center.
-* Warp the detected lane boundaries back onto the original image.
-* Output visual display of the lane boundaries and numerical estimation of lane curvature and vehicle position.
 
 [//]: # (Image References)
 
@@ -87,14 +72,13 @@ I defined `project_lane` and `draw_data` in order to project the detected lane/l
 
 ### Pipeline (video)
 
-#### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
+The video pipeline performs all the previous steps on each frame of the video. The pipeline decides which method to be used to detect the lane lines, `sliding_window` or '`margin_search`. The pipeline makes the decision based on a check that it performs to determine how parallel the right and left lines are. For the purpose of smoothing, it weighs the previously processed frames and lines. The weighs are decreasing from frame n-1 to n-4. Below is a linke to the video.
 
-Here's a [link to my video result](./project_video.mp4)
+Here's a [link to my video result](./project_video_output.mp4)
 
 ---
 
 ### Discussion
 
-#### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
-
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+There are many ways to improve the performance of the pipeline. Improvements can be mainly made on video processing pipeline. Also, it is possible to define a more intelligent way to create binary images based on the original image. 
+A problem I faced was the slow performance of the pipeline. This can be due to the fact my computer does not have a dedicated GPU. Also, the code can be modified to downsize images and rescale them back to the original size.
